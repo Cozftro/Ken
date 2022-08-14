@@ -19,8 +19,7 @@ Slackの特定チャンネルに時間を入力すると、その時間に特定
 - IncomingWebhookを叩く
 
 # 設計図
-![blueprint](https://raw.githubusercontent.com/Cozftro/kensuke/master/.images/kensuke.drawio.png)
-
+![blueprint](https://raw.githubusercontent.com/Cozftro/Ken/master/.images/kensuke.drawio.png)
 
 # Flow
 ## ①時刻打刻(トリガー)
@@ -31,7 +30,7 @@ Slackの特定チャンネルに時間を入力すると、その時間に特定
 ・1~23時の場合は、1:00 や 23:59 記載でOK
 ・正規表現が使用できない為、下記のようにトリガーを設定
 ```
-![torigger](https://raw.githubusercontent.com/Cozftro/kensuke/master/.images/outgoing_torigger.png)
+![torigger](https://raw.githubusercontent.com/Cozftro/Ken/master/.images/outgoing_torigger.png)
 
 ## ②OutgoingWebhook
 OutgoingWebhookをチャンネルに紐づける。<br>
@@ -50,13 +49,13 @@ GASにて毎分 `cron_main.gs` を実行。
 
 #### ユーザーIDリスト取得方法
 1. 管理者としてSlackワークスペースにログイン
-![workspace_1](https://raw.githubusercontent.com/Cozftro/kensuke/master/.images/workspace_1.png)
+![workspace_1](https://raw.githubusercontent.com/Cozftro/Ken/master/.images/workspace_1.png)
 2. メンバーリストをエクスポート実施
-![workspace_1](https://raw.githubusercontent.com/Cozftro/kensuke/master/.images/workspace_2.png)
+![workspace_1](https://raw.githubusercontent.com/Cozftro/Ken/master/.images/workspace_2.png)
 3. webブラウザ上で確認画面が出るので、SlackBotからのメッセージを確認
-![workspace_1](https://raw.githubusercontent.com/Cozftro/kensuke/master/.images/workspace_3.png)
+![workspace_1](https://raw.githubusercontent.com/Cozftro/Ken/master/.images/workspace_3.png)
 4. csvをダウンロードしてIDを確認
-![workspace_1](https://raw.githubusercontent.com/Cozftro/kensuke/master/.images/workspace_4.png)
+![workspace_1](https://raw.githubusercontent.com/Cozftro/Ken/master/.images/workspace_4.png)
 
 
 # Remarks
