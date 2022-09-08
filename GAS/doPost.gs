@@ -14,9 +14,12 @@ function doPost(e) {
   // Slackに投稿したメッセージを取得
   var text = String(e.parameters.text);
 
+  // 日付
+  var day = Utilities.formatDate(new Date(), "JST","dd");
+
   // スプレッドシートに書き込むネタまとめ
-  var writeData = [date, userName, text];
+  var writeData = [date, userName, text, day];
   
   // スプレッドシートのアクティブシートへ書き込む
   sheet.appendRow(writeData);
-}
+}  

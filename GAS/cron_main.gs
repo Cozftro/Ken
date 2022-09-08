@@ -60,7 +60,8 @@ function notifySlack(notifyTime) {
 // main関数
 function cron_main() {
   // スプレッドシートの縦列を指定
-  const tate = "C"
+  const colVal  = "C"
+  const colday  = "D"
 
   // 現在の時間を取得(hh:mm 形式でjikan変数に格納)
   let date = new Date();
@@ -71,22 +72,29 @@ function cron_main() {
     jikan = (date.getHours() + ":" + date.getMinutes());
   }
 
+  // 現在の日付を取得
+  let hiduke = date.getDate();
+
   // 最終行を取得(sheetLastrow関数にて取得)
   let valCol = sheetLastrow();
 
-  // 取得対象のセルを指定(scrapingCellに格納)
-  let scrapingCell = tate + valCol;
+  // 取得対象のセルを指定(scraping*に格納)
+  let scrapingCell = colVal + valCol;
+  let scrapingDay  = colday + valCol;
 
   // スプレッドシートからvalueを取得(rtValに格納)
   let ss = SpreadsheetApp.getActiveSpreadsheet();
   let as = ss.getActiveSheet();
   let rtVal = as.getRange(scrapingCell).getDisplayValue();
+
+  // スプレッドシートから入力日付を取得
+  let rtDay = as.getRange(scrapingDay).getDisplayValue();
   
   // 時間の判定 
-  if (rtVal == jikan) {
-    notifySlack(rtVal);
+  if (rtVal == jikan && rtDay ==  hiduke) {
+      notifySlack(rtVal);
   }else{
-    // debug用
     console.log(jikan,rtVal);
+    console.log(rtDay,hiduke);
   }
 }
